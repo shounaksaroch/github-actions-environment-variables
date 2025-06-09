@@ -29,4 +29,6 @@ jobs:
     - name: Print name
       run: echo "Hello $NAME"
     - name: Print JAVA VERSION
-      run: echo "Hello ${{ env.JAVA_VER }}"
+      run: echo "We are doing build # $BUILD using Java Version $JAVA_VER"
+      env:
+        BUILD: "Build3221"
