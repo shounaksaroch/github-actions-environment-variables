@@ -29,4 +29,4 @@ jobs:
     - name: Print name
       run: echo "Hello $NAME"
     - name: Print JAVA VERSION
-      run: echo "Hello $env.JAVA_VER"
+      run: echo "Hello ${{ env.JAVA_VER }}"
