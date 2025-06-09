@@ -13,16 +13,20 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    # JOB SCOPE/LEVEL VARIABLES PLACED HERE
+    env:
+      JAVA_VER: '21'
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 21
+    - name: Set up JDK ${{ env.JAVA_VER }}
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
+        java-version: ${{ env.JAVA_VER }}
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Print name
       run: echo "Hello $NAME"
+    - name: Print JAVA VERSION
+      run: echo "Hello $env.JAVA_VER"
